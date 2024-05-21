@@ -8,15 +8,15 @@
 
 <div th:each="book : ${books}">
     <a th:href="@{/books/{id}(id=${book.getId()})}"
-       th:text="${book.getTitle()} + ', ' +
-       ${book.getAuthor()} + ', ' +
+       th:text="${book.getAuthor()} + ', ' +
+       ${book.getTitle()} + ', ' +
        ${book.getYear()}"></a>
 </div>
 
-<hr/>
-<form th:method="GET" th:action="@{/books/sortByAuthor}">
-    <input type="submit" value="Сортировка по автору"/>
-</form>
+<!--<hr/>-->
+<!--<form th:method="GET" th:action="@{/books/{id}/edit(id=${book.getId()})}">-->
+<!--    <input type="submit" value="Сортировка по автору"/>-->
+<!--</form>-->
 
 <br/>
 <hr/>

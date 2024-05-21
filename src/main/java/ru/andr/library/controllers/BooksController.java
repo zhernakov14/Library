@@ -83,4 +83,10 @@ public class BooksController {
         bookDAO.delete(id);
         return "redirect:/books";
     }
+
+    @GetMapping("/sortByAuthor")
+    public String sortByAuthor(Model model) {
+        model.addAttribute("books", bookDAO.indexByAuthor());
+        return "books/indexByAuthor";
+    }
 }

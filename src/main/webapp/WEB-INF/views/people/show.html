@@ -10,6 +10,14 @@
 <div th:if="${books.isEmpty()}">
     <span>Человек пока не взял ни одной книги</span>
     <hr/>
+    <form th:method="PATCH" th:action="@{/people/{id}/assign(id=${person.getId()})}">
+        <label for="book">Выберите книгу:</label>
+        <select th:object="${book}" th:field="*{id}" id="book">
+            <option th:each="book : ${allBooks}" th:value="${book.getId()}"
+                    th:text="${book.getTitle()}"></option>
+        </select>
+        <input type="submit" value="Присвоить книгу"/>
+    </form>
 </div>
 
 <div th:if="${!books.isEmpty()}">
